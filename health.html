@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="light only">
+    <meta name="description" content="Health insights and research notes by Zhalgas Serimbetov — evidence-based approaches to wellbeing.">
+    <title>Health — Zhalgas Serimbetov</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Source+Sans+3:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .page-title {
+            margin-bottom: 2rem;
+        }
+
+        .projects-list {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .project-card {
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        .project-card:last-child {
+            border-bottom: none;
+        }
+
+        .project-name {
+            font-family: var(--font-display);
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: var(--color-text);
+            margin-bottom: 0.5rem;
+        }
+
+        .project-desc {
+            font-size: 0.95rem;
+            color: var(--color-text-muted);
+            max-width: 500px;
+            margin-bottom: 0.8rem;
+            font-style: italic;
+        }
+
+        .study-results {
+            list-style: none;
+            padding-left: 0;
+            margin-top: 0.5rem;
+        }
+
+        .study-results li {
+            font-size: 0.95rem;
+            color: var(--color-text-muted);
+            padding-left: 1.2rem;
+            position: relative;
+            margin-bottom: 0.4rem;
+            font-style: italic;
+        }
+
+        .study-results li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--color-accent);
+        }
+
+        .study-link {
+            font-size: 0.95rem;
+            color: var(--color-text-muted);
+            margin-top: 1rem;
+            font-style: italic;
+        }
+
+        .study-link a {
+            color: var(--color-accent);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .study-link a:hover {
+            text-decoration: underline;
+        }
+
+        .personal-note {
+            font-size: 0.95rem;
+            color: var(--color-text);
+            max-width: 500px;
+            margin-top: 1.2rem;
+            line-height: 1.7;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <a href="index.html" class="site-title">Zhalgas Serimbetov</a>
+            <nav>
+                <a href="writings.html">writings</a>
+                <a href="health.html" class="active">health</a>
+                <a href="books.html">books</a>
+                <a href="links.html">links</a>
+                <a href="about.html">about</a>
+            </nav>
+        </aside>
+
+        <main class="main">
+            <div class="content">
+                <h1 class="page-title">Health</h1>
+
+                <div class="projects-list">
+                    <div class="project-card">
+                        <h2 class="project-name">Benefits of sleeping earlier</h2>
+                        <p class="project-desc"><em>"In this study, we took a group of 'night owls' (ie, people with extreme late sleeping and waking patterns) and attempted to shift their habitual late timings earlier in a real-world setting using simple, practical non-pharmacological interventions. Using this intervention we can:</em></p>
+                        <ul class="study-results">
+                            <li><em>Achieve a phase advance of around 2 h</em></li>
+                            <li><em>Decrease self-reported ratings of depression and stress</em></li>
+                            <li><em>Reduce sleepiness in the morning</em></li>
+                            <li><em>Significantly improve simple indices of cognitive and physical performance"</em></li>
+                        </ul>
+                        <p class="study-link"><em>To read the full study go to <a href="https://doi.org/10.1016/j.sleep.2019.05.001" target="_blank" rel="noopener">doi.org/10.1016/j.sleep.2019.05.001</a></em></p>
+                        <p class="personal-note">I've personally noticed significant benefits from going to bed earlier. If I stay up late—especially if I'm using gadgets right up until bedtime—my sleep quality suffers, and I definitely feel it the next day. On the other hand, getting to sleep before 10 or 11 p.m. has been a huge boost to my energy levels.</p>
+                    </div>
+                </div>
+            </div>
+
+            <footer>
+                Site updated January 2026. Built with care.
+            </footer>
+        </main>
+    </div>
+</body>
+</html>

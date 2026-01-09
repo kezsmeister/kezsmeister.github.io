@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="light only">
+    <meta name="description" content="Books read by Zhalgas Serimbetov — a collection organized by year with covers and authors.">
+    <title>Books — Zhalgas Serimbetov</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Source+Sans+3:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .container {
+            max-width: 1100px;
+        }
+
+        .content > p {
+            max-width: 560px;
+            margin-bottom: 2rem;
+            color: var(--color-text-muted);
+        }
+
+        .book-card {
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.2s ease;
+        }
+        .book-card:hover { transform: translateY(-4px); }
+
+        .book-cover-wrapper {
+            width: 100%;
+            aspect-ratio: 2/3;
+            border-radius: 4px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+            transition: box-shadow 0.2s ease;
+            overflow: hidden;
+            position: relative;
+        }
+        .book-card:hover .book-cover-wrapper {
+            box-shadow: 0 6px 16px rgba(0,0,0,0.18);
+        }
+
+        .book-cover {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: none;
+        }
+        .book-cover.loaded { display: block; }
+
+        .book-cover-fallback {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px;
+            text-align: center;
+            font-family: var(--font-display);
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: white;
+            line-height: 1.3;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+        }
+        .book-cover.loaded ~ .book-cover-fallback { display: none; }
+
+        .book-info { margin-top: 0.6rem; }
+        .book-title {
+            font-family: var(--font-display);
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--color-text);
+            line-height: 1.3;
+            margin-bottom: 0.2rem;
+        }
+        .book-author {
+            font-size: 0.8rem;
+            color: var(--color-text-muted);
+            line-height: 1.3;
+        }
+
+        .year-section {
+            margin-bottom: 2.5rem;
+        }
+
+        .year-toggle {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem 0;
+            margin-bottom: 1rem;
+            font-family: var(--font-display);
+            transition: color 0.2s ease;
+        }
+        .year-toggle:hover { color: var(--color-accent); }
+
+        .year-label {
+            font-size: 1.3rem;
+            font-weight: 500;
+            color: var(--color-text);
+        }
+        .year-toggle:hover .year-label { color: var(--color-accent); }
+
+        .toggle-icon {
+            color: var(--color-text-muted);
+            transition: transform 0.3s ease;
+            margin-left: 0.25rem;
+        }
+        .year-toggle[aria-expanded="false"] .toggle-icon {
+            transform: rotate(-90deg);
+        }
+
+        .books-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+            gap: 1.5rem 1.2rem;
+            overflow: hidden;
+            transition: max-height 0.4s ease, opacity 0.3s ease;
+        }
+        .books-grid.collapsed {
+            max-height: 0;
+            opacity: 0;
+            margin: 0;
+        }
+
+        @media (max-width: 700px) {
+            .books-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <a href="index.html" class="site-title">Zhalgas Serimbetov</a>
+            <nav>
+                <a href="writings.html">writings</a>
+                <a href="health.html">health</a>
+                <a href="books.html" class="active">books</a>
+                <a href="links.html">links</a>
+                <a href="about.html">about</a>
+            </nav>
+        </aside>
+
+        <main class="main">
+            <div class="content">
+                <h1 class="page-title">Books</h1>
+                <p>A collection of books I've read.</p>
+
+                <div class="year-section" data-year="2025">
+                    <button class="year-toggle" aria-expanded="false">
+                        <span class="year-label">2025</span>
+                        <svg class="toggle-icon" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                            <path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                    <div class="books-grid collapsed"></div>
+                </div>
+
+                <div class="year-section" data-year="2024">
+                    <button class="year-toggle" aria-expanded="false">
+                        <span class="year-label">2024</span>
+                        <svg class="toggle-icon" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                            <path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                    <div class="books-grid collapsed"></div>
+                </div>
+
+                <div class="year-section" data-year="2023">
+                    <button class="year-toggle" aria-expanded="false">
+                        <span class="year-label">2023</span>
+                        <svg class="toggle-icon" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                            <path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                    <div class="books-grid collapsed"></div>
+                </div>
+            </div>
+            <footer>Site updated January 2026. Built with care.</footer>
+        </main>
+    </div>
+
+    <script>
+        const booksByYear = {
+            2025: [
+                { title: "1929", author: "Andrew Ross Sorkin", isbns: ["0593296966"], color: "#2c3e50" },
+                { title: "Advanced Portfolio Management", author: "Giuseppe A. Paleologo", isbns: ["1119789796"], color: "#614385" },
+                { title: "Apple in China", author: "Patrick McGee", isbns: ["1668053373"], color: "#134e5e" },
+                { title: "Barbarians at the Gate", author: "Bryan Burrough & John Helyar", isbns: ["0060161728", "0061655554"], color: "#8e2de2" },
+                { title: "Cage Kings", author: "Michael Thomsen", isbns: ["1501198475"], color: "#c94b4b" },
+                {
+                    title: "The China Business Conundrum",
+                    author: "Ken Wilcox",
+                    isbns: ["1394294166"],
+                    directCover: "https://media.wiley.com/product_data/coverImage300/69/13942941/1394294169.jpg",
+                    color: "#1a2a6c"
+                },
+                { title: "Freedom's Forge", author: "Arthur Herman", isbns: ["0812982045", "1400069645"], color: "#0f2027" },
+                { title: "Genentech", author: "Sally Smith Hughes", isbns: ["0226359182", "022604551X"], color: "#355c7d" },
+                { title: "Genghis Khan", author: "Jack Weatherford", isbns: ["0609809644", "0609610627"], color: "#403a3e" },
+                { title: "Gold", author: "Matthew Hart", isbns: ["1451650027", "1451650043"], color: "#1d4350" },
+                { title: "The Gun", author: "C.J. Chivers", isbns: ["0743271734", "0743270762"], color: "#4b6cb7" },
+                { title: "The Hard Thing About Hard Things", author: "Ben Horowitz", isbns: ["0062273205"], color: "#834d9b" },
+                {
+                    title: "Health Insurance and Managed Care",
+                    author: "Peter R. Kongstvedt",
+                    isbns: ["1284206645"],
+                    directCover: "https://www.jblearning.com/covers/9781284206630.jpg",
+                    color: "#02aab0"
+                },
+                { title: "The Horde", author: "Marie Favereau", isbns: ["0674244214"], color: "#2c3e50" },
+                { title: "House of Huawei", author: "Eva Dou", isbns: ["0593544633"], color: "#614385" },
+                { title: "Khubilai Khan", author: "John Man", noImage: true, color: "#134e5e" },
+                { title: "King of Diamonds", author: "Rena Pederson", noImage: true, color: "#8e2de2" },
+                { title: "The Man Who Solved the Market", author: "Gregory Zuckerman", isbns: ["073521798X", "0735217998"], color: "#c94b4b" },
+                { title: "Mongol Queens", author: "Jack Weatherford", isbns: ["0307407152"], color: "#1a2a6c" },
+                { title: "My Life as a Quant", author: "Emanuel Derman", isbns: ["0471394203", "0470192739"], color: "#0f2027" },
+                {
+                    title: "Odyssey Moscow",
+                    author: "Michael Calvey",
+                    isbns: ["9781803997308", "1803997303"],
+                    directCover: "https://static.wixstatic.com/media/469c6d_7f10e91836f548e199616f569900f5c1~mv2.png/v1/fill/w_248,h_433,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/book-odyssey.png",
+                    color: "#355c7d"
+                },
+                {
+                    title: "Reentry",
+                    author: "Eric Berger",
+                    isbns: ["1637745273"],
+                    directCover: "https://benbellabooks.com/wp-content/uploads/2024/04/9781637745274.jpg",
+                    color: "#403a3e"
+                },
+                { title: "Skunk Works", author: "Ben R. Rich & Leo Janos", isbns: ["0316743003", "0316743054"], color: "#1d4350" },
+                { title: "Space Barons", author: "Christian Davenport", isbns: ["1610398297", "1541774310"], color: "#4b6cb7" },
+                { title: "The Best Short Stories 2024", author: "Ed. Amor Towles", noImage: true, color: "#834d9b" },
+                { title: "The Whole-Brain Child", author: "Daniel J. Siegel & Tina Payne Bryson", isbns: ["0553386697", "0553807919"], color: "#02aab0" }
+            ],
+            2024: [
+                { title: "100 Baggers", author: "Christopher W. Mayer", isbns: ["1621291650"], color: "#2c3e50" },
+                { title: "All You Need to Know About the Music Business", author: "Donald S. Passman", isbns: ["1668011069", "1501122185"], color: "#614385" },
+                { title: "The Arc of Boxing", author: "Mike Silver", noImage: true, color: "#134e5e" },
+                { title: "The Art of Short Selling", author: "Kathryn F. Staley", isbns: ["0471146323"], color: "#8e2de2" },
+                { title: "The BFG", author: "Roald Dahl", isbns: ["0142410381", "0141346396"], color: "#c94b4b" },
+                { title: "Boy", author: "Roald Dahl", isbns: ["0142413836", "0140318909"], color: "#1a2a6c" },
+                { title: "Broadbandits", author: "Om Malik", isbns: ["0471434051"], color: "#0f2027" },
+                { title: "Buy This, Not That", author: "Sam Dogen", isbns: ["0593328779"], color: "#355c7d" },
+                { title: "Charlie and the Chocolate Factory", author: "Roald Dahl", isbns: ["0142410314", "0141346450"], color: "#403a3e" },
+                { title: "Charlie and the Great Glass Elevator", author: "Roald Dahl", isbns: ["0142410322", "0141346469"], color: "#1d4350" },
+                { title: "Danny the Champion of the World", author: "Roald Dahl", isbns: ["0142410330", "0141346434"], color: "#4b6cb7" },
+                { title: "Dear Chairman", author: "Jeff Gramm", isbns: ["0062369830"], color: "#834d9b" },
+                { title: "Diary of a Very Bad Year", author: "n+1 & Keith Gessen", noImage: true, color: "#02aab0" },
+                { title: "Drunk in China", author: "Derek Sandhaus", noImage: true, color: "#2c3e50" },
+                { title: "Elon Musk", author: "Walter Isaacson", isbns: ["1982181281"], color: "#614385" },
+                { title: "Focus: The ASML Way", author: "Marc Hijink", noImage: true, color: "#134e5e" },
+                { title: "Gambler", author: "Billy Walters", isbns: ["1668032856"], color: "#8e2de2" },
+                { title: "Going Solo", author: "Roald Dahl", isbns: ["0142413836", "0140105018"], color: "#c94b4b" },
+                { title: "High Output Management", author: "Andrew S. Grove", isbns: ["0679762884"], color: "#1a2a6c" },
+                { title: "Investing with the Grand Masters", author: "James Morton", noImage: true, color: "#0f2027" },
+                { title: "James and the Giant Peach", author: "Roald Dahl", isbns: ["0142410365", "0141346310"], color: "#355c7d" },
+                { title: "Just Six Numbers", author: "Martin Rees", isbns: ["0465036724"], color: "#403a3e" },
+                { title: "Lessons from the Titans", author: "Scott Davis, Carter Copeland & Rob Wertheimer", isbns: ["1260468399"], color: "#1d4350" },
+                { title: "Material World", author: "Ed Conway", noImage: true, color: "#4b6cb7" },
+                { title: "Matilda", author: "Roald Dahl", isbns: ["0142410373", "0141346353"], color: "#834d9b" },
+                { title: "Nothing but Net", author: "Mark Mahaney", isbns: ["1264274963"], color: "#02aab0" },
+                { title: "Private Equity", author: "Carrie Sun", isbns: ["0593654994"], color: "#2c3e50" },
+                { title: "Stealth", author: "Peter Westwick", isbns: ["0190677449"], color: "#614385" },
+                { title: "Tobacco", author: "Iain Gately", isbns: ["0802139604"], color: "#134e5e" },
+                { title: "Trillions", author: "Robin Wigglesworth", isbns: ["0593087682"], color: "#8e2de2" },
+                { title: "Ubiquity", author: "Mark Buchanan", isbns: ["0609809989"], color: "#c94b4b" },
+                { title: "The Whole-Brain Child", author: "Daniel J. Siegel & Tina Payne Bryson", isbns: ["0553386697", "0553807919"], color: "#1a2a6c" }
+            ],
+            2023: [
+                { title: "Anatomy of a Swipe", author: "Ahmed Siddiqui & Nicholas Straight", noImage: true, color: "#2c3e50" },
+                { title: "Billion Dollar Molecule", author: "Barry Werth", isbns: ["0671510576", "0671723545"], color: "#614385" },
+                { title: "Billion Dollar Whale", author: "Tom Wright & Bradley Hope", isbns: ["0316436496", "0316453471"], color: "#134e5e" },
+                { title: "Devil Take the Hindmost", author: "Edward Chancellor", isbns: ["0452281806", "0374138583"], color: "#8e2de2" },
+                { title: "Hedgehogging", author: "Barton Biggs", isbns: ["047006073X", "0471771910"], color: "#c94b4b" },
+                { title: "House of Nomura", author: "Albert J. Alletzhauser", isbns: ["1559701870", "0062730029"], color: "#1a2a6c" },
+                { title: "Innovation", author: "James Dyson", noImage: true, color: "#0f2027" },
+                { title: "Leadership in War", author: "Andrew Roberts", isbns: ["0525522387"], color: "#355c7d" },
+                { title: "Memoirs of the Second World War", author: "Winston Churchill", noImage: true, color: "#403a3e" },
+                { title: "More Money Than God", author: "Sebastian Mallaby", isbns: ["0143119419", "1594202559"], color: "#1d4350" },
+                { title: "The Anxious Investor", author: "Scott Nations", noImage: true, color: "#4b6cb7" },
+                { title: "The Club", author: "Joshua Robinson & Jonathan Clegg", noImage: true, color: "#834d9b" },
+                { title: "The Greatest Trade Ever", author: "Gregory Zuckerman", isbns: ["0385529945", "0385529910"], color: "#02aab0" },
+                { title: "The Pay Off", author: "Gottfried Leibbrandt & Natasha de Terán", noImage: true, color: "#2c3e50" },
+                { title: "The Price of Time", author: "Edward Chancellor", isbns: ["0802160069"], color: "#614385" },
+                { title: "There's Always Something to Do", author: "Christopher Risso-Gill", noImage: true, color: "#134e5e" },
+                { title: "Trillion Dollar Triage", author: "Nick Timiraos", noImage: true, color: "#8e2de2" },
+                { title: "Tubes", author: "Andrew Blum", isbns: ["0061994952", "0061994936"], color: "#c94b4b" },
+                { title: "Two and Twenty", author: "Sachin Khajuria", noImage: true, color: "#1a2a6c" },
+                { title: "What I Learned About Investing from Darwin", author: "Pulak Prasad", noImage: true, color: "#0f2027" },
+                { title: "The World's Banker", author: "Sebastian Mallaby", isbns: ["0143036793", "1594200157"], color: "#355c7d" }
+            ]
+        };
+
+        function createBookCard(book) {
+            const div = document.createElement('div');
+            div.className = 'book-card';
+            div.innerHTML = `
+                <div class="book-cover-wrapper" style="background: linear-gradient(145deg, ${book.color}, ${adjustColor(book.color, 30)})">
+                    <img class="book-cover" alt="${book.title}">
+                    <div class="book-cover-fallback">${book.title}</div>
+                </div>
+                <div class="book-info">
+                    <div class="book-title">${book.title}</div>
+                    <div class="book-author">${book.author}</div>
+                </div>
+            `;
+            return div;
+        }
+
+        function adjustColor(hex, amount) {
+            const num = parseInt(hex.replace('#', ''), 16);
+            const r = Math.min(255, Math.max(0, (num >> 16) + amount));
+            const g = Math.min(255, Math.max(0, ((num >> 8) & 0x00FF) + amount));
+            const b = Math.min(255, Math.max(0, (num & 0x0000FF) + amount));
+            return `#${((r << 16) | (g << 8) | b).toString(16).padStart(6, '0')}`;
+        }
+
+        function getCoverUrls(book) {
+            const urls = [];
+
+            if (book.directCover) {
+                urls.push(book.directCover);
+            }
+
+            if (book.isbns) {
+                book.isbns.forEach(isbn => {
+                    urls.push(`https://covers.openlibrary.org/b/isbn/${isbn}-L.jpg`);
+                });
+
+                book.isbns.forEach(isbn => {
+                    urls.push(`https://books.google.com/books/content?vid=ISBN:${isbn}&printsec=frontcover&img=1&zoom=1`);
+                });
+            }
+
+            return urls;
+        }
+
+        function tryLoadCover(img, urls, index = 0) {
+            if (index >= urls.length) return;
+
+            const url = urls[index];
+            const testImg = new Image();
+
+            testImg.onload = function() {
+                if (this.naturalWidth > 50 && this.naturalHeight > 50) {
+                    img.src = url;
+                    img.classList.add('loaded');
+                } else {
+                    tryLoadCover(img, urls, index + 1);
+                }
+            };
+
+            testImg.onerror = function() {
+                tryLoadCover(img, urls, index + 1);
+            };
+
+            testImg.src = url;
+        }
+
+        // Initialize all year sections
+        document.querySelectorAll('.year-section').forEach(section => {
+            const year = section.dataset.year;
+            const books = booksByYear[year] || [];
+            const grid = section.querySelector('.books-grid');
+            const toggle = section.querySelector('.year-toggle');
+
+            // Populate books
+            books.forEach(book => {
+                const card = createBookCard(book);
+                grid.appendChild(card);
+
+                if (!book.noImage) {
+                    const img = card.querySelector('.book-cover');
+                    const urls = getCoverUrls(book);
+                    if (urls.length > 0) {
+                        tryLoadCover(img, urls);
+                    }
+                }
+            });
+
+            // Toggle functionality
+            toggle.addEventListener('click', function() {
+                const expanded = this.getAttribute('aria-expanded') === 'true';
+                this.setAttribute('aria-expanded', !expanded);
+                grid.classList.toggle('collapsed');
+            });
+        });
+    </script>
+</body>
+</html>
