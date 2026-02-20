@@ -31,8 +31,12 @@
             transition: color 0.2s ease;
             width: fit-content;
         }
-        .home-nav a:hover {
-            text-decoration: underline;
+        .home-nav a .arrow {
+            display: inline-block;
+            transition: transform 0.2s ease;
+        }
+        .home-nav a:hover .arrow {
+            transform: translateX(3px);
         }
     </style>
 </head>
@@ -61,9 +65,9 @@
                         I find interesting along the way.
                     </p>
                     <div class="home-nav">
-                        <a href="books.html">Books I've read →</a>
-                        <a href="health.html">Notes on health →</a>
-                        <a href="about.html">More about me →</a>
+                        <a href="books.html">Books I've read <span class="arrow">&rarr;</span></a>
+                        <a href="health.html">Notes on health <span class="arrow">&rarr;</span></a>
+                        <a href="about.html">More about me <span class="arrow">&rarr;</span></a>
                     </div>
                 </div>
             </div>
