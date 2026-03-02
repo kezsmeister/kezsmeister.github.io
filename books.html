@@ -163,6 +163,16 @@
                 <h1 class="page-title">Books</h1>
                 <p>A collection of books I've read.</p>
 
+                <div class="year-section" data-year="2026">
+                    <button class="year-toggle" aria-expanded="false">
+                        <span class="year-label">2026</span>
+                        <svg class="toggle-icon" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                            <path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                    <div class="books-grid collapsed"></div>
+                </div>
+
                 <div class="year-section" data-year="2025">
                     <button class="year-toggle" aria-expanded="false">
                         <span class="year-label">2025</span>
@@ -199,6 +209,13 @@
 
     <script>
         const booksByYear = {
+            2026: [
+                { title: "The Dealmaker", author: "Guy Hands", isbns: ["0008457867", "0008457859"], color: "#2c3e50" },
+                { title: "What I Learned About Investing from Darwin", author: "Pulak Prasad", isbns: ["1264268173", "1264268165"], color: "#614385" },
+                { title: "Money Men", author: "Dan McCrum", isbns: ["1982178035", "1398706736"], color: "#134e5e" },
+                { title: "Peak Human", author: "Johan Norberg", isbns: ["1639731253"], color: "#8e2de2" },
+                { title: "Four Seasons", author: "Isadore Sharp", isbns: ["1591845645", "0670066870"], color: "#c94b4b" }
+            ],
             2025: [
                 { title: "1929", author: "Andrew Ross Sorkin", isbns: ["0593296966"], color: "#2c3e50" },
                 { title: "Advanced Portfolio Management", author: "Giuseppe A. Paleologo", isbns: ["1119789796"], color: "#614385" },
