@@ -1,17 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-74F6EP6V7N"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-74F6EP6V7N');
-    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="color-scheme" content="light only">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' https: data:; connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://*.google-analytics.com https://*.googletagmanager.com;">
     <meta name="description" content="Health insights and research notes by Zhalgas Serimbetov — evidence-based approaches to wellbeing.">
     <title>Health — Zhalgas Serimbetov</title>
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
@@ -19,98 +12,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Source+Sans+3:wght@300;400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
-    <style>
-        .page-title {
-            margin-bottom: 2rem;
-        }
-
-        .projects-list {
-            display: flex;
-            flex-direction: column;
-            gap: 2rem;
-        }
-
-        .project-card {
-            padding: 2rem 0;
-            border-top: 1px solid var(--color-border);
-            border-bottom: 1px solid var(--color-border);
-        }
-
-        .project-card:last-child {
-            border-bottom: none;
-        }
-
-        .project-name {
-            font-family: var(--font-display);
-            font-size: 1.2rem;
-            font-weight: 500;
-            color: var(--color-text);
-            margin-bottom: 0.5rem;
-        }
-
-        .study-quote {
-            border-left: 3px solid var(--color-accent);
-            background-color: rgba(74, 124, 111, 0.04);
-            border-radius: 0 4px 4px 0;
-            padding: 1.2rem 1.5rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .project-desc {
-            font-size: 0.95rem;
-            color: var(--color-text-muted);
-            max-width: 500px;
-            margin-bottom: 0.8rem;
-            font-style: italic;
-        }
-
-        .study-results {
-            list-style: none;
-            padding-left: 0;
-            margin-top: 0.5rem;
-        }
-
-        .study-results li {
-            font-size: 0.95rem;
-            color: var(--color-text-muted);
-            padding-left: 1.2rem;
-            position: relative;
-            margin-bottom: 0.4rem;
-            font-style: italic;
-        }
-
-        .study-results li::before {
-            content: '•';
-            position: absolute;
-            left: 0;
-            color: var(--color-accent);
-        }
-
-        .study-link {
-            font-size: 0.95rem;
-            color: var(--color-text-muted);
-            margin-top: 1rem;
-            font-style: italic;
-        }
-
-        .study-link a {
-            color: var(--color-accent);
-            text-decoration: none;
-            transition: color 0.2s ease;
-        }
-
-        .study-link a:hover {
-            text-decoration: underline;
-        }
-
-        .personal-note {
-            font-size: 0.95rem;
-            color: var(--color-text);
-            max-width: 500px;
-            margin-top: 1.2rem;
-            line-height: 1.7;
-        }
-    </style>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-74F6EP6V7N"></script>
+    <script src="ga.js"></script>
 </head>
 <body>
     <div class="container">
@@ -140,7 +43,7 @@
                                 <li><em>Reduce sleepiness in the morning</em></li>
                                 <li><em>Significantly improve simple indices of cognitive and physical performance"</em></li>
                             </ul>
-                            <p class="study-link"><em>To read the full study go to <a href="https://doi.org/10.1016/j.sleep.2019.05.001" target="_blank" rel="noopener">doi.org/10.1016/j.sleep.2019.05.001</a></em></p>
+                            <p class="study-link"><em>To read the full study go to <a href="https://doi.org/10.1016/j.sleep.2019.05.001" target="_blank" rel="noopener noreferrer">doi.org/10.1016/j.sleep.2019.05.001</a></em></p>
                         </div>
                         <p class="personal-note">I've personally noticed significant benefits from going to bed earlier. If I stay up late—especially if I'm using gadgets right up until bedtime—my sleep quality suffers, and I definitely feel it the next day. On the other hand, getting to sleep before 10 or 11 p.m. has been a huge boost to my energy levels.</p>
                     </div>

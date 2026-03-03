@@ -1,5 +1,4 @@
 :root {
-    color-scheme: light only;
     --color-text: #2c2c2c;
     --color-text-muted: #8a8a8a;
     --color-accent: #4a7c6f;
@@ -127,7 +126,7 @@ nav a.active {
     font-size: 1.8rem;
     font-weight: 500;
     color: var(--color-text);
-    margin-bottom: 1.5rem;
+    margin-bottom: 2rem;
     letter-spacing: -0.02em;
 }
 
@@ -164,7 +163,339 @@ footer {
     font-style: italic;
 }
 
-/* Responsive */
+/* Subtle fade-in animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.content {
+    animation: fadeIn 0.6s ease-out;
+}
+
+/* ---- Home page ---- */
+.home-intro {
+    max-width: 520px;
+}
+
+.home-intro p {
+    margin-bottom: 1.5rem;
+}
+
+.home-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: 2rem;
+}
+
+.home-nav a {
+    color: var(--color-accent);
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.2s ease;
+    width: fit-content;
+}
+
+.home-nav a .arrow {
+    display: inline-block;
+    transition: transform 0.2s ease;
+}
+
+.home-nav a:hover .arrow {
+    transform: translateX(3px);
+}
+
+/* ---- About page ---- */
+.photo-hero {
+    width: 100%;
+    max-width: 480px;
+    height: 280px;
+    object-fit: cover;
+    border-radius: 6px;
+    margin-bottom: 2rem;
+}
+
+/* ---- Books page ---- */
+.page-books .container {
+    max-width: 1100px;
+}
+
+.page-books .content > p {
+    max-width: 560px;
+    margin-bottom: 2rem;
+    color: var(--color-text-muted);
+}
+
+.book-card {
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s ease;
+}
+
+.book-card:hover {
+    transform: translateY(-4px);
+}
+
+.book-cover-wrapper {
+    width: 100%;
+    aspect-ratio: 2/3;
+    border-radius: 4px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+    transition: box-shadow 0.2s ease;
+    overflow: hidden;
+    position: relative;
+}
+
+.book-card:hover .book-cover-wrapper {
+    box-shadow: 0 6px 16px rgba(0,0,0,0.18);
+}
+
+.book-cover {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: none;
+}
+
+.book-cover.loaded {
+    display: block;
+}
+
+.book-cover-fallback {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px;
+    text-align: center;
+    font-family: var(--font-display);
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: white;
+    line-height: 1.3;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+}
+
+.book-cover.loaded ~ .book-cover-fallback {
+    display: none;
+}
+
+.book-info {
+    margin-top: 0.6rem;
+}
+
+.book-title {
+    font-family: var(--font-display);
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--color-text);
+    line-height: 1.3;
+    margin-bottom: 0.2rem;
+}
+
+.book-author {
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+    line-height: 1.3;
+}
+
+.year-section {
+    margin-bottom: 0;
+}
+
+.year-toggle {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.3rem 0;
+    margin-bottom: 0.5rem;
+    font-family: var(--font-display);
+    transition: color 0.2s ease;
+}
+
+.year-toggle:hover {
+    color: var(--color-accent);
+}
+
+.year-label {
+    font-size: 1.3rem;
+    font-weight: 500;
+    color: var(--color-text);
+}
+
+.year-toggle:hover .year-label {
+    color: var(--color-accent);
+}
+
+.toggle-icon {
+    color: var(--color-text-muted);
+    transition: transform 0.3s ease;
+    margin-left: 0.25rem;
+}
+
+.year-toggle[aria-expanded="false"] .toggle-icon {
+    transform: rotate(-90deg);
+}
+
+.books-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 1.5rem 1.2rem;
+    overflow: hidden;
+    transition: max-height 0.4s ease, opacity 0.3s ease;
+    max-height: 0;
+    opacity: 0;
+}
+
+/* ---- Health page ---- */
+.projects-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.project-card {
+    padding: 2rem 0;
+    border-top: 1px solid var(--color-border);
+    border-bottom: 1px solid var(--color-border);
+}
+
+.project-card:last-child {
+    border-bottom: none;
+}
+
+.project-name {
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: var(--color-text);
+    margin-bottom: 0.5rem;
+}
+
+.study-quote {
+    border-left: 3px solid var(--color-accent);
+    background-color: rgba(74, 124, 111, 0.04);
+    border-radius: 0 4px 4px 0;
+    padding: 1.2rem 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.project-desc {
+    font-size: 0.95rem;
+    color: var(--color-text-muted);
+    max-width: 500px;
+    margin-bottom: 0.8rem;
+    font-style: italic;
+}
+
+.study-results {
+    list-style: none;
+    padding-left: 0;
+    margin-top: 0.5rem;
+}
+
+.study-results li {
+    font-size: 0.95rem;
+    color: var(--color-text-muted);
+    padding-left: 1.2rem;
+    position: relative;
+    margin-bottom: 0.4rem;
+    font-style: italic;
+}
+
+.study-results li::before {
+    content: '\2022';
+    position: absolute;
+    left: 0;
+    color: var(--color-accent);
+}
+
+.study-link {
+    font-size: 0.95rem;
+    color: var(--color-text-muted);
+    margin-top: 1rem;
+    font-style: italic;
+}
+
+.study-link a {
+    color: var(--color-accent);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.study-link a:hover {
+    text-decoration: underline;
+}
+
+.personal-note {
+    font-size: 0.95rem;
+    color: var(--color-text);
+    max-width: 500px;
+    margin-top: 1.2rem;
+    line-height: 1.7;
+}
+
+/* ---- Writings page ---- */
+.coming-soon {
+    color: var(--color-text-muted);
+    font-style: italic;
+    max-width: 400px;
+}
+
+/* ---- Links page ---- */
+.page-links .content p {
+    max-width: 560px;
+    margin-bottom: 1.5rem;
+    color: var(--color-text-muted);
+}
+
+.links-section {
+    margin-bottom: 2.5rem;
+}
+
+.links-section h2 {
+    font-family: var(--font-display);
+    font-size: 1.15rem;
+    font-weight: 500;
+    color: var(--color-text);
+    margin-bottom: 0.8rem;
+    letter-spacing: -0.01em;
+}
+
+.links-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.links-list a {
+    color: var(--color-accent);
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: color 0.2s ease;
+    width: fit-content;
+}
+
+.links-list a:hover {
+    color: var(--color-accent-hover);
+    text-decoration: underline;
+}
+
+/* ---- Responsive ---- */
 @media (max-width: 700px) {
     .container {
         flex-direction: column;
@@ -189,20 +520,12 @@ footer {
     .main {
         padding-left: 0;
     }
-}
 
-/* Subtle fade-in animation */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(10px);
+    .photo-hero {
+        height: 200px;
     }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
 
-.content {
-    animation: fadeIn 0.6s ease-out;
+    .books-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }

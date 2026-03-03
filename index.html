@@ -1,17 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-74F6EP6V7N"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-74F6EP6V7N');
-    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="color-scheme" content="light only">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' https: data:; connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://*.google-analytics.com https://*.googletagmanager.com;">
     <meta name="description" content="Personal website of Zhalgas Serimbetov — writings, books, and ideas at the intersection of biology, technology, and curiosity.">
     <title>Zhalgas Serimbetov</title>
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
@@ -19,34 +12,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Source+Sans+3:wght@300;400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
-    <style>
-        .home-intro {
-            max-width: 520px;
-        }
-        .home-intro p {
-            margin-bottom: 1.5rem;
-        }
-        .home-nav {
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
-            margin-top: 2rem;
-        }
-        .home-nav a {
-            color: var(--color-accent);
-            text-decoration: none;
-            font-size: 1rem;
-            transition: color 0.2s ease;
-            width: fit-content;
-        }
-        .home-nav a .arrow {
-            display: inline-block;
-            transition: transform 0.2s ease;
-        }
-        .home-nav a:hover .arrow {
-            transform: translateX(3px);
-        }
-    </style>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-74F6EP6V7N"></script>
+    <script src="ga.js"></script>
 </head>
 <body>
     <div class="container">
