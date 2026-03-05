@@ -1,12 +1,12 @@
 :root {
-    --color-text: #2c2c2c;
-    --color-text-muted: #8a8a8a;
-    --color-accent: #4a7c6f;
-    --color-accent-hover: #3d6a5e;
-    --color-bg: #fafaf9;
-    --color-border: #e5e5e5;
-    --font-display: 'Cormorant Garamond', Georgia, serif;
-    --font-body: 'Source Sans 3', -apple-system, sans-serif;
+    --color-text: #1c1917;
+    --color-text-muted: #a8a29e;
+    --color-accent: #c2410c;
+    --color-accent-hover: #a63a0a;
+    --color-bg: #f5f2ed;
+    --color-border: #e7e5e0;
+    --font-display: 'Instrument Serif', Georgia, serif;
+    --font-body: 'DM Sans', -apple-system, sans-serif;
 }
 
 * {
@@ -16,7 +16,7 @@
 }
 
 ::selection {
-    background-color: #4a7c6f30;
+    background-color: #c2410c20;
     color: var(--color-text);
 }
 
@@ -28,7 +28,7 @@ html {
 
 body {
     font-family: var(--font-body);
-    font-weight: 300;
+    font-weight: 400;
     color: var(--color-text);
     background-color: var(--color-bg);
     line-height: 1.7;
@@ -40,24 +40,24 @@ body {
     max-width: 1000px;
     margin: 0 auto;
     min-height: 100vh;
-    padding: 80px 40px 40px;
+    padding: 48px 40px 28px;
 }
 
 /* Sidebar */
 .sidebar {
-    width: 200px;
+    width: 168px;
     flex-shrink: 0;
-    padding-right: 40px;
+    padding-right: 28px;
     border-right: 1px solid var(--color-border);
 }
 
 .site-title {
     font-family: var(--font-display);
-    font-size: 1.5rem;
-    font-weight: 500;
+    font-size: 1.55rem;
+    font-weight: 400;
     color: var(--color-text);
     text-decoration: none;
-    letter-spacing: -0.02em;
+    letter-spacing: -0.03em;
     display: block;
     margin-bottom: 2rem;
     transition: color 0.2s ease;
@@ -75,10 +75,12 @@ nav {
 
 nav a {
     font-family: var(--font-body);
-    font-size: 0.95rem;
-    font-weight: 400;
+    font-size: 0.61rem;
+    font-weight: 500;
     color: var(--color-text-muted);
     text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
     transition: color 0.2s ease;
     position: relative;
     width: fit-content;
@@ -112,7 +114,7 @@ nav a.active {
 /* Main content */
 .main {
     flex: 1;
-    padding-left: 60px;
+    padding-left: 40px;
     display: flex;
     flex-direction: column;
 }
@@ -158,9 +160,8 @@ footer {
     margin-top: auto;
     padding-top: 1.5rem;
     border-top: 1px solid var(--color-border);
-    font-size: 0.85rem;
+    font-size: 0.61rem;
     color: var(--color-text-muted);
-    font-style: italic;
 }
 
 /* Subtle fade-in animation */
@@ -181,24 +182,29 @@ footer {
 
 /* ---- Home page ---- */
 .home-intro {
-    max-width: 520px;
+    max-width: 440px;
 }
 
 .home-intro p {
-    margin-bottom: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.home-intro p:last-of-type {
+    color: var(--color-text-muted);
 }
 
 .home-nav {
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
-    margin-top: 2rem;
+    gap: 0.3rem;
+    margin-top: 1.5rem;
 }
 
 .home-nav a {
     color: var(--color-accent);
     text-decoration: none;
-    font-size: 1rem;
+    font-size: 0.72rem;
+    font-weight: 500;
     transition: color 0.2s ease;
     width: fit-content;
 }
@@ -247,7 +253,7 @@ footer {
     width: 100%;
     aspect-ratio: 2/3;
     border-radius: 4px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+    box-shadow: 0 2px 6px rgba(28,25,23,0.15);
     transition: box-shadow 0.2s ease;
     overflow: hidden;
     position: relative;
@@ -297,15 +303,15 @@ footer {
 
 .book-title {
     font-family: var(--font-display);
-    font-size: 0.9rem;
-    font-weight: 500;
+    font-size: 0.67rem;
+    font-weight: 400;
     color: var(--color-text);
     line-height: 1.3;
-    margin-bottom: 0.2rem;
+    margin-bottom: 0.1rem;
 }
 
 .book-author {
-    font-size: 0.8rem;
+    font-size: 0.56rem;
     color: var(--color-text-muted);
     line-height: 1.3;
 }
@@ -353,8 +359,8 @@ footer {
 
 .books-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-    gap: 1.5rem 1.2rem;
+    grid-template-columns: repeat(auto-fill, minmax(88px, 1fr));
+    gap: 14px 12px;
     overflow: hidden;
     transition: max-height 0.4s ease, opacity 0.3s ease;
     max-height: 0;
@@ -388,7 +394,7 @@ footer {
 
 .study-quote {
     border-left: 3px solid var(--color-accent);
-    background-color: rgba(74, 124, 111, 0.04);
+    background-color: rgba(194, 65, 12, 0.04);
     border-radius: 0 4px 4px 0;
     padding: 1.2rem 1.5rem;
     margin-bottom: 1.5rem;
