@@ -28,10 +28,10 @@ html {
 body {
     font-family: var(--font-body);
     font-weight: 400;
-    font-size: 15px;
+    font-size: 18px;
     color: var(--color-text);
     background-color: var(--color-bg);
-    line-height: 160%;
+    line-height: 30px;
     min-height: 100vh;
 }
 
@@ -71,18 +71,18 @@ body {
 nav {
     display: flex;
     flex-direction: column;
-    gap: 6px;
+    gap: 10px;
 }
 
 nav a {
     font-family: var(--font-body);
-    font-size: 11px;
+    font-size: 14px;
     font-weight: 500;
     color: var(--color-text-muted);
     text-decoration: none;
     text-transform: uppercase;
     letter-spacing: 0.08em;
-    line-height: 14px;
+    line-height: 18px;
     transition: color 0.2s ease;
     position: relative;
     width: fit-content;
@@ -207,9 +207,9 @@ footer {
 .home-nav a {
     color: var(--color-accent);
     text-decoration: none;
-    font-size: 13px;
+    font-size: 16px;
     font-weight: 500;
-    line-height: 16px;
+    line-height: 20px;
     transition: color 0.2s ease;
     width: fit-content;
 }
