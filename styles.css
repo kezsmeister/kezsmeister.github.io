@@ -345,9 +345,9 @@ footer {
 }
 
 .year-label {
-    font-size: 20px;
+    font-size: 26px;
     font-weight: 400;
-    line-height: 24px;
+    line-height: 32px;
     color: var(--color-text);
 }
 
