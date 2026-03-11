@@ -576,6 +576,11 @@ footer {
         max-width: 100%;
     }
 
+    .year-label {
+        font-size: 28px;
+        line-height: 34px;
+    }
+
     .books-grid {
         grid-template-columns: repeat(2, 1fr);
     }
