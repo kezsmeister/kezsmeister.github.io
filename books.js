@@ -4,7 +4,7 @@ var booksByYear = {
         { title: "What I Learned About Investing from Darwin", author: "Pulak Prasad", isbns: ["0231203489"], directCover: "https://cup-us.imgix.net/covers/9780231203487.jpg?auto=format&w=350", color: "#8b4513" },
         { title: "Money Men", author: "Dan McCrum", isbns: ["0552178462", "178763504X"], directCover: "https://cdn.penguin.co.uk/dam-assets/books/9780552178464/9780552178464-jacket-large.jpg", color: "#556b2f" },
         { title: "Peak Human", author: "Johan Norberg", isbns: ["1838957294"], directCover: "https://atlantic-books.co.uk/wp-content/uploads/2026/02/9781838957315-scaled.jpeg", color: "#7c3a2e" },
-        { title: "Boom", author: "Byrne Hobart", isbns: ["1982181834"], color: "#2f4f4f" },
+        { title: "Boom", author: "Byrne Hobart & Tobias Huber", isbns: ["1953953476"], color: "#2f4f4f" },
         { title: "Four Seasons", author: "Isadore Sharp", isbns: ["1591845645", "0670066870"], color: "#92400e" }
     ],
     2025: [
