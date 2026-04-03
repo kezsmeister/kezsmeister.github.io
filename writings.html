@@ -33,13 +33,20 @@
                 <h1 class="page-title">Writings</h1>
 
                 <div class="projects-list">
-                    <div class="project-card">
-                        <h2 class="project-name">On Homeschooling</h2>
-                        <p class="project-desc">Given the school-age children population of 50 million in the US, how many kids would you guess are homeschooled in the US? I would certainly guess a number below a million. 3-4 million kids are apparently homeschooled in the US. This is probably due to it is being legal and the industry establishing itself around it.</p>
-                        <p class="project-desc">My guess is many people are skeptical of homeschooling. I was too. Yet after becoming a dad, I started asking myself if homeschooling was actually superior.</p>
-                        <p class="project-desc">We do not actively teach our 5 year old anything academic. Due to natural curiosity she learned the Cyrillic letters and can read basic words. Obviously there are much more capable 5 year olds out there, my point is if a kid can learn basic stuff without active teaching - imagine things she can learn in 1-2 hour/day pace with a teacher. I believe 2 hours a day is enough to master the current school curriculum. Evidence to that is - Alpha School in the US, which has 2 hour academic sessions a day, and the rest of the day spent doing fun stuff. Alpha School students score very high in state exams compared to peers.</p>
-                        <p class="project-desc">Benefits of homeschooling is twofold in my mind: 1) Pacing of academic materials tailored to your kids' abilities, 2) frees up time for your kid to do other stuff (playing, extracurricular activities etc).</p>
-                        <p class="project-desc">To be clear, we are not planning to homeschool. Homeschooling is a very serious undertaking that requires strong commitment from parents. I am not sure if we are ready for such a commitment. Frankly, I am not sure if it's legal in Kazakhstan. Just wanted to highlight that we don't discuss homeschooling enough in the society.</p>
+                    <div class="essay-section">
+                        <button class="year-toggle" aria-expanded="false">
+                            <span class="year-label">On Homeschooling</span>
+                            <svg class="toggle-icon" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                <path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+                        <div class="essay-body">
+                            <p class="project-desc">Given the school-age children population of 50 million in the US, how many kids would you guess are homeschooled in the US? I would certainly guess a number below a million. 3-4 million kids are apparently homeschooled in the US. This is probably due to it is being legal and the industry establishing itself around it.</p>
+                            <p class="project-desc">My guess is many people are skeptical of homeschooling. I was too. Yet after becoming a dad, I started asking myself if homeschooling was actually superior.</p>
+                            <p class="project-desc">We do not actively teach our 5 year old anything academic. Due to natural curiosity she learned the Cyrillic letters and can read basic words. Obviously there are much more capable 5 year olds out there, my point is if a kid can learn basic stuff without active teaching - imagine things she can learn in 1-2 hour/day pace with a teacher. I believe 2 hours a day is enough to master the current school curriculum. Evidence to that is - Alpha School in the US, which has 2 hour academic sessions a day, and the rest of the day spent doing fun stuff. Alpha School students score very high in state exams compared to peers.</p>
+                            <p class="project-desc">Benefits of homeschooling is twofold in my mind: 1) Pacing of academic materials tailored to your kids' abilities, 2) frees up time for your kid to do other stuff (playing, extracurricular activities etc).</p>
+                            <p class="project-desc">To be clear, we are not planning to homeschool. Homeschooling is a very serious undertaking that requires strong commitment from parents. I am not sure if we are ready for such a commitment. Frankly, I am not sure if it's legal in Kazakhstan. Just wanted to highlight that we don't discuss homeschooling enough in the society.</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -49,5 +56,36 @@
             </footer>
         </main>
     </div>
+    <script>
+    document.querySelectorAll('.essay-section').forEach(function(section) {
+        var toggle = section.querySelector('.year-toggle');
+        var body = section.querySelector('.essay-body');
+
+        toggle.addEventListener('click', function() {
+            var isExpanded = this.getAttribute('aria-expanded') === 'true';
+
+            if (isExpanded) {
+                body.style.maxHeight = body.scrollHeight + 'px';
+                body.offsetHeight;
+                body.style.maxHeight = '0';
+                body.style.opacity = '0';
+                this.setAttribute('aria-expanded', 'false');
+            } else {
+                body.offsetHeight;
+                body.style.maxHeight = body.scrollHeight + 'px';
+                body.style.opacity = '1';
+                this.setAttribute('aria-expanded', 'true');
+
+                var onEnd = function(e) {
+                    if (e.propertyName === 'max-height') {
+                        body.style.maxHeight = 'none';
+                        body.removeEventListener('transitionend', onEnd);
+                    }
+                };
+                body.addEventListener('transitionend', onEnd);
+            }
+        });
+    });
+    </script>
 </body>
 </html>

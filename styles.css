@@ -375,6 +375,17 @@ footer {
     opacity: 0;
 }
 
+.essay-section {
+    margin-bottom: 0;
+}
+
+.essay-body {
+    overflow: hidden;
+    transition: max-height 0.4s ease, opacity 0.3s ease;
+    max-height: 0;
+    opacity: 0;
+}
+
 /* ---- Health page ---- */
 .projects-list {
     display: flex;
