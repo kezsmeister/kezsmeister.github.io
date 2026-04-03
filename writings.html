@@ -35,6 +35,20 @@
                 <div class="projects-list">
                     <div class="essay-section">
                         <button class="year-toggle" aria-expanded="false">
+                            <span class="year-label">Best Investment Advice</span>
+                            <svg class="toggle-icon" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                <path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+                        <div class="essay-body">
+                            <p class="project-desc">The smartest investment advice is simple: don't leave. As Peter Lynch observed, investors have lost far more money bracing for crashes than the crashes themselves ever took.</p>
+                            <p class="project-desc">Over time it becomes obvious that trading too much is futile. The urge to react — to buy on optimism, sell on fear — feels like smart decision-making. In reality, for anyone who isn't a generational trading savant, every clever move chips away at long-term returns.</p>
+                            <p class="project-desc">Think about everything the world has thrown at us over the past seven years. And still, the US market has soared, minting wealth at a staggering pace. Look at the Forbes list — those names aren't traders. They're founders who held on. You just have to stay invested along these great founders.</p>
+                        </div>
+                    </div>
+
+                    <div class="essay-section">
+                        <button class="year-toggle" aria-expanded="false">
                             <span class="year-label">On Homeschooling</span>
                             <svg class="toggle-icon" width="16" height="16" viewBox="0 0 16 16" fill="none">
                                 <path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -56,36 +70,6 @@
             </footer>
         </main>
     </div>
-    <script>
-    document.querySelectorAll('.essay-section').forEach(function(section) {
-        var toggle = section.querySelector('.year-toggle');
-        var body = section.querySelector('.essay-body');
-
-        toggle.addEventListener('click', function() {
-            var isExpanded = this.getAttribute('aria-expanded') === 'true';
-
-            if (isExpanded) {
-                body.style.maxHeight = body.scrollHeight + 'px';
-                body.offsetHeight;
-                body.style.maxHeight = '0';
-                body.style.opacity = '0';
-                this.setAttribute('aria-expanded', 'false');
-            } else {
-                body.offsetHeight;
-                body.style.maxHeight = body.scrollHeight + 'px';
-                body.style.opacity = '1';
-                this.setAttribute('aria-expanded', 'true');
-
-                var onEnd = function(e) {
-                    if (e.propertyName === 'max-height') {
-                        body.style.maxHeight = 'none';
-                        body.removeEventListener('transitionend', onEnd);
-                    }
-                };
-                body.addEventListener('transitionend', onEnd);
-            }
-        });
-    });
-    </script>
+    <script src="writings.js"></script>
 </body>
 </html>

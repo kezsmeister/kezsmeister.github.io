@@ -334,8 +334,8 @@ footer {
     background: none;
     border: none;
     cursor: pointer;
-    padding: 4px 0;
-    margin-bottom: 8px;
+    padding: 0;
+    margin-bottom: 0;
     font-family: var(--font-display);
     transition: color 0.2s ease;
 }
@@ -377,6 +377,16 @@ footer {
 
 .essay-section {
     margin-bottom: 0;
+    margin-top: 0;
+}
+
+.essay-section:first-child {
+    margin-top: 50px;
+}
+
+.essay-section .year-label {
+    font-size: 22px;
+    line-height: 28px;
 }
 
 .essay-body {
@@ -384,13 +394,14 @@ footer {
     transition: max-height 0.4s ease, opacity 0.3s ease;
     max-height: 0;
     opacity: 0;
+    padding-top: 16px;
 }
 
 /* ---- Health page ---- */
 .projects-list {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: 6px;
 }
 
 .project-card {
@@ -420,11 +431,11 @@ footer {
 }
 
 .project-desc {
-    font-size: 13px;
+    font-size: 15px;
     color: var(--color-text-muted);
     max-width: 500px;
     margin-bottom: 10px;
-    font-style: italic;
+    font-style: normal;
 }
 
 .study-results {
