@@ -513,6 +513,10 @@ footer {
     margin-bottom: 2.5rem;
 }
 
+.links-section:first-of-type {
+    margin-top: 50px;
+}
+
 .links-section h2 {
     font-family: var(--font-display);
     font-size: 20px;
