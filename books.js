@@ -106,7 +106,6 @@ function createBookCard(book) {
     var img = document.createElement('img');
     img.className = 'book-cover';
     img.alt = book.title;
-    img.loading = 'lazy';
     img.referrerPolicy = 'no-referrer';
 
     var fallback = document.createElement('div');
@@ -168,23 +167,19 @@ function tryLoadCover(img, urls, index) {
     if (index === undefined) index = 0;
     if (index >= urls.length) return;
 
-    var url = urls[index];
-    var testImg = new Image();
-
-    testImg.onload = function() {
+    img.onload = function() {
         if (this.naturalWidth > 50 && this.naturalHeight > 50) {
-            img.src = url;
-            img.classList.add('loaded');
+            this.classList.add('loaded');
         } else {
             tryLoadCover(img, urls, index + 1);
         }
     };
 
-    testImg.onerror = function() {
+    img.onerror = function() {
         tryLoadCover(img, urls, index + 1);
     };
 
-    testImg.src = url;
+    img.src = urls[index];
 }
 
 // Initialize all year sections
