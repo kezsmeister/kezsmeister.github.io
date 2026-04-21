@@ -5,7 +5,8 @@ var booksByYear = {
         { title: "Money Men", author: "Dan McCrum", isbns: ["0552178462", "178763504X"], directCover: "https://cdn.penguin.co.uk/dam-assets/books/9780552178464/9780552178464-jacket-large.jpg", color: "#556b2f" },
         { title: "Peak Human", author: "Johan Norberg", isbns: ["1838957294"], directCover: "https://atlantic-books.co.uk/wp-content/uploads/2026/02/9781838957315-scaled.jpeg", color: "#7c3a2e" },
         { title: "Boom", author: "Byrne Hobart & Tobias Huber", isbns: ["1953953476"], color: "#2f4f4f" },
-        { title: "Four Seasons", author: "Isadore Sharp", isbns: ["1591845645", "0670066870"], color: "#92400e" }
+        { title: "Four Seasons", author: "Isadore Sharp", isbns: ["1591845645", "0670066870"], color: "#92400e" },
+        { title: "The Last Kings of Shanghai", author: "Jonathan Kaufman", isbns: ["0735224412"], directCover: "https://books.google.com/books/content?id=2Vy9DwAAQBAJ&printsec=frontcover&img=1&zoom=3", color: "#1e3a5f" }
     ],
     2025: [
         { title: "1929", author: "Andrew Ross Sorkin", isbns: ["0593296966"], color: "#5c4033" },
