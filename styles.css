@@ -122,6 +122,7 @@ nav a.active {
 
 .content {
     flex: 1;
+    animation: fadeIn 0.6s ease-out;
 }
 
 .page-title {
@@ -177,10 +178,6 @@ footer {
         opacity: 1;
         transform: translateY(0);
     }
-}
-
-.content {
-    animation: fadeIn 0.6s ease-out;
 }
 
 /* ---- Home page ---- */
