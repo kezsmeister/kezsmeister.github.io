@@ -10,18 +10,18 @@ var booksByYear = {
     ],
     2025: [
         { title: "1929", author: "Andrew Ross Sorkin", isbns: ["0593296966"], color: "#5c4033" },
-        { title: "Advanced Portfolio Management", author: "Giuseppe A. Paleologo", isbns: ["1119789796"], color: "#8b4513" },
+        { title: "Advanced Portfolio Management", author: "Giuseppe A. Paleologo", isbns: ["1119789796"], directCover: "https://books.google.com/books/content?id=-yk1EAAAQBAJ&printsec=frontcover&img=1&zoom=1", color: "#8b4513" },
         { title: "Apple in China", author: "Patrick McGee", isbns: ["1668053373"], color: "#556b2f" },
         { title: "Barbarians at the Gate", author: "Bryan Burrough & John Helyar", isbns: ["0060161728", "0061655554"], color: "#7c3a2e" },
         { title: "Cage Kings", author: "Michael Thomsen", isbns: ["1501198475"], color: "#92400e" },
-        { title: "The China Business Conundrum", author: "Ken Wilcox", isbns: ["1394294166"], directCover: "https://media.wiley.com/product_data/coverImage300/69/13942941/1394294169.jpg", color: "#1e3a5f" },
+        { title: "The China Business Conundrum", author: "Ken Wilcox", isbns: ["1394294166"], directCover: "https://media.wiley.com/product_data/coverImage300/66/13942941/1394294166.jpg", color: "#1e3a5f" },
         { title: "Freedom's Forge", author: "Arthur Herman", isbns: ["0812982045", "1400069645"], color: "#3d3929" },
         { title: "Genentech", author: "Sally Smith Hughes", isbns: ["0226359182", "022604551X"], color: "#6b5c4d" },
         { title: "Genghis Khan", author: "Jack Weatherford", isbns: ["0609809644", "0609610627"], color: "#4a5240" },
         { title: "Gold", author: "Matthew Hart", isbns: ["1451650027", "1451650043"], color: "#78593a" },
         { title: "The Gun", author: "C.J. Chivers", isbns: ["0743271734", "0743270762"], color: "#2f4f4f" },
         { title: "The Hard Thing About Hard Things", author: "Ben Horowitz", isbns: ["0062273205"], color: "#705038" },
-        { title: "Health Insurance and Managed Care", author: "Peter R. Kongstvedt", isbns: ["1284206645"], directCover: "https://www.jblearning.com/covers/9781284206630.jpg", color: "#8a7b5e" },
+        { title: "Health Insurance and Managed Care", author: "Peter R. Kongstvedt", isbns: ["1284206645"], directCover: "https://books.google.com/books/content?id=AtOFDwAAQBAJ&printsec=frontcover&img=1&zoom=1", color: "#8a7b5e" },
         { title: "The Horde", author: "Marie Favereau", isbns: ["0674244214"], color: "#5c4033" },
         { title: "House of Huawei", author: "Eva Dou", isbns: ["0593544633"], color: "#8b4513" },
         { title: "Khubilai Khan", author: "John Man", noImage: true, color: "#556b2f" },
@@ -54,14 +54,14 @@ var booksByYear = {
         { title: "Elon Musk", author: "Walter Isaacson", isbns: ["1982181281"], color: "#8b4513" },
         { title: "Focus: The ASML Way", author: "Marc Hijink", noImage: true, color: "#556b2f" },
         { title: "Gambler", author: "Billy Walters", isbns: ["1668032856"], color: "#7c3a2e" },
-        { title: "Going Solo", author: "Roald Dahl", isbns: ["0140105018"], color: "#92400e" },
+        { title: "Going Solo", author: "Roald Dahl", isbns: ["0140105018"], directCover: "https://books.google.com/books/content?id=O1u2AgAAQBAJ&printsec=frontcover&img=1&zoom=1", color: "#92400e" },
         { title: "High Output Management", author: "Andrew S. Grove", isbns: ["0679762884"], color: "#1e3a5f" },
         { title: "Investing with the Grand Masters", author: "James Morton", noImage: true, color: "#3d3929" },
         { title: "James and the Giant Peach", author: "Roald Dahl", isbns: ["0142410365", "0141346310"], color: "#6b5c4d" },
         { title: "Just Six Numbers", author: "Martin Rees", isbns: ["0465036724"], color: "#4a5240" },
         { title: "Lessons from the Titans", author: "Scott Davis, Carter Copeland & Rob Wertheimer", isbns: ["1260468399"], color: "#78593a" },
         { title: "Material World", author: "Ed Conway", noImage: true, color: "#2f4f4f" },
-        { title: "Matilda", author: "Roald Dahl", isbns: ["0142410373", "0141346353"], color: "#705038" },
+        { title: "Matilda", author: "Roald Dahl", isbns: ["0142410373", "0141346353"], directCover: "https://books.google.com/books/content?id=lpeMEAAAQBAJ&printsec=frontcover&img=1&zoom=1", color: "#705038" },
         { title: "Nothing but Net", author: "Mark Mahaney", isbns: ["1264274963"], color: "#8a7b5e" },
         { title: "Private Equity", author: "Carrie Sun", isbns: ["0593654994"], color: "#5c4033" },
         { title: "Stealth", author: "Peter Westwick", isbns: ["0190677449"], color: "#8b4513" },
@@ -76,7 +76,7 @@ var booksByYear = {
         { title: "Billion Dollar Whale", author: "Tom Wright & Bradley Hope", isbns: ["0316436496", "0316453471"], color: "#556b2f" },
         { title: "Devil Take the Hindmost", author: "Edward Chancellor", isbns: ["0452281806", "0374138583"], color: "#7c3a2e" },
         { title: "Hedgehogging", author: "Barton Biggs", isbns: ["047006073X", "0471771910"], color: "#92400e" },
-        { title: "House of Nomura", author: "Albert J. Alletzhauser", isbns: ["1559701870", "0062730029"], color: "#1e3a5f" },
+        { title: "House of Nomura", author: "Albert J. Alletzhauser", noImage: true, color: "#1e3a5f" },
         { title: "Innovation", author: "James Dyson", noImage: true, color: "#3d3929" },
         { title: "Leadership in War", author: "Andrew Roberts", isbns: ["0525522387"], color: "#6b5c4d" },
         { title: "Memoirs of the Second World War", author: "Winston Churchill", noImage: true, color: "#4a5240" },
@@ -163,6 +163,18 @@ function getCoverUrls(book) {
     return urls;
 }
 
+function isGooglePlaceholder(imgEl, url) {
+    if (url.indexOf('books.google.com') === -1) return false;
+    var w = imgEl.naturalWidth;
+    var h = imgEl.naturalHeight;
+    // Google Books placeholders: "image not available" is 128x170,
+    // gray striped is 128x184. Reject exact matches.
+    if (w === 128 && (h === 170 || h === 184)) return true;
+    // Also reject very short aspect ratios (wrong book covers like 128x102)
+    if (w > 0 && h / w < 1.2) return true;
+    return false;
+}
+
 function tryLoadCover(img, urls, index) {
     if (index === undefined) index = 0;
     if (index >= urls.length) return;
@@ -175,7 +187,7 @@ function tryLoadCover(img, urls, index) {
 
     img.onload = function() {
         clearTimeout(timer);
-        if (this.naturalWidth > 50 && this.naturalHeight > 50) {
+        if (this.naturalWidth > 50 && this.naturalHeight > 50 && !isGooglePlaceholder(this, urls[index])) {
             this.classList.add('loaded');
         } else {
             tryLoadCover(img, urls, index + 1);
