@@ -152,11 +152,11 @@ function getCoverUrls(book) {
 
     if (book.isbns) {
         book.isbns.forEach(function(isbn) {
-            urls.push('https://covers.openlibrary.org/b/isbn/' + isbn + '-L.jpg');
+            urls.push('https://books.google.com/books/content?vid=ISBN:' + isbn + '&printsec=frontcover&img=1&zoom=1');
         });
 
         book.isbns.forEach(function(isbn) {
-            urls.push('https://books.google.com/books/content?vid=ISBN:' + isbn + '&printsec=frontcover&img=1&zoom=1');
+            urls.push('https://covers.openlibrary.org/b/isbn/' + isbn + '-L.jpg');
         });
     }
 
@@ -167,7 +167,14 @@ function tryLoadCover(img, urls, index) {
     if (index === undefined) index = 0;
     if (index >= urls.length) return;
 
+    var timer = setTimeout(function() {
+        img.onload = null;
+        img.onerror = null;
+        tryLoadCover(img, urls, index + 1);
+    }, 5000);
+
     img.onload = function() {
+        clearTimeout(timer);
         if (this.naturalWidth > 50 && this.naturalHeight > 50) {
             this.classList.add('loaded');
         } else {
@@ -176,6 +183,7 @@ function tryLoadCover(img, urls, index) {
     };
 
     img.onerror = function() {
+        clearTimeout(timer);
         tryLoadCover(img, urls, index + 1);
     };
 
