@@ -8,7 +8,8 @@ var booksByYear = {
         { title: "Four Seasons", author: "Isadore Sharp", isbns: ["1591845645", "0670066870"], color: "#92400e" },
         { title: "The Last Kings of Shanghai", author: "Jonathan Kaufman", isbns: ["0735224412"], directCover: "https://books.google.com/books/content?id=2Vy9DwAAQBAJ&printsec=frontcover&img=1&zoom=1", color: "#1e3a5f" },
         { title: "Runnin' Down a Dream", author: "Bill Gurley", isbns: ["0593799666", "1911709852"], directCover: "https://books.google.com/books/content?id=jOl0EQAAQBAJ&printsec=frontcover&img=1&zoom=1", color: "#4a3728" },
-        { title: "Streetwise", author: "Lloyd Blankfein", isbns: ["1398725485"], directCover: "https://books.google.com/books/content?id=4zpjEQAAQBAJ&printsec=frontcover&img=1&zoom=1", color: "#3d3929" }
+        { title: "Streetwise", author: "Lloyd Blankfein", isbns: ["1398725485"], directCover: "https://books.google.com/books/content?id=4zpjEQAAQBAJ&printsec=frontcover&img=1&zoom=1", color: "#3d3929" },
+        { title: "Central Banking 101", author: "Joseph Wang", isbns: ["0999136755"], color: "#6b5c4d" }
     ],
     2025: [
         { title: "1929", author: "Andrew Ross Sorkin", isbns: ["0593296966"], color: "#5c4033" },
