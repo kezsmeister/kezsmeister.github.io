@@ -282,11 +282,12 @@ footer {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    display: none;
+    display: block;
+    opacity: 0;
 }
 
 .book-cover.loaded {
-    display: block;
+    opacity: 1;
 }
 
 .book-cover-fallback {
