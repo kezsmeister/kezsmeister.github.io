@@ -109,6 +109,8 @@ function createBookCard(book) {
     var img = document.createElement('img');
     img.className = 'book-cover';
     img.alt = book.title;
+    img.loading = 'lazy';
+    img.decoding = 'async';
     img.referrerPolicy = 'no-referrer';
 
     var fallback = document.createElement('div');
@@ -179,12 +181,19 @@ function isGooglePlaceholder(imgEl, url) {
 }
 
 function tryLoadCover(img, urls, index) {
+    if (img.dataset.coverLoading === 'true' || img.classList.contains('loaded')) return;
     if (index === undefined) index = 0;
-    if (index >= urls.length) return;
+    if (index >= urls.length) {
+        img.dataset.coverLoading = 'false';
+        return;
+    }
+
+    img.dataset.coverLoading = 'true';
 
     var timer = setTimeout(function() {
         img.onload = null;
         img.onerror = null;
+        img.dataset.coverLoading = 'false';
         tryLoadCover(img, urls, index + 1);
     }, 5000);
 
@@ -192,17 +201,27 @@ function tryLoadCover(img, urls, index) {
         clearTimeout(timer);
         if (this.naturalWidth > 50 && this.naturalHeight > 50 && !isGooglePlaceholder(this, urls[index])) {
             this.classList.add('loaded');
+            this.dataset.coverLoading = 'false';
         } else {
+            this.dataset.coverLoading = 'false';
             tryLoadCover(img, urls, index + 1);
         }
     };
 
     img.onerror = function() {
         clearTimeout(timer);
+        img.dataset.coverLoading = 'false';
         tryLoadCover(img, urls, index + 1);
     };
 
     img.src = urls[index];
+}
+
+function loadCoversForSection(section) {
+    section.querySelectorAll('.book-cover[data-cover-urls]').forEach(function(img) {
+        var urls = JSON.parse(img.dataset.coverUrls);
+        tryLoadCover(img, urls);
+    });
 }
 
 // Initialize all year sections
@@ -221,7 +240,7 @@ document.querySelectorAll('.year-section').forEach(function(section) {
             var img = card.querySelector('.book-cover');
             var urls = getCoverUrls(book);
             if (urls.length > 0) {
-                tryLoadCover(img, urls);
+                img.dataset.coverUrls = JSON.stringify(urls);
             }
         }
     });
@@ -239,6 +258,7 @@ document.querySelectorAll('.year-section').forEach(function(section) {
             this.setAttribute('aria-expanded', 'false');
         } else {
             // Expand: transition from 0 to measured height
+            loadCoversForSection(section);
             grid.offsetHeight; // force reflow
             grid.style.maxHeight = grid.scrollHeight + 'px';
             grid.style.opacity = '1';
