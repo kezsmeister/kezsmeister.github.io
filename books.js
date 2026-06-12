@@ -109,6 +109,7 @@ function createBookCard(book) {
     var img = document.createElement('img');
     img.className = 'book-cover';
     img.alt = book.title;
+    img.decoding = 'async';
     img.referrerPolicy = 'no-referrer';
 
     var fallback = document.createElement('div');
@@ -211,20 +212,26 @@ document.querySelectorAll('.year-section').forEach(function(section) {
     var books = booksByYear[year] || [];
     var grid = section.querySelector('.books-grid');
     var toggle = section.querySelector('.year-toggle');
+    var coversLoaded = false;
 
-    // Populate books
+    // Populate books; cover requests are deferred until the section
+    // is first expanded so collapsed years cost no network traffic
     books.forEach(function(book) {
-        var card = createBookCard(book);
-        grid.appendChild(card);
+        grid.appendChild(createBookCard(book));
+    });
 
-        if (!book.noImage) {
-            var img = card.querySelector('.book-cover');
+    function loadCovers() {
+        if (coversLoaded) return;
+        coversLoaded = true;
+        grid.querySelectorAll('.book-card').forEach(function(card, i) {
+            var book = books[i];
+            if (!book || book.noImage) return;
             var urls = getCoverUrls(book);
             if (urls.length > 0) {
-                tryLoadCover(img, urls);
+                tryLoadCover(card.querySelector('.book-cover'), urls);
             }
-        }
-    });
+        });
+    }
 
     // Toggle with animated expand/collapse
     toggle.addEventListener('click', function() {
@@ -239,6 +246,7 @@ document.querySelectorAll('.year-section').forEach(function(section) {
             this.setAttribute('aria-expanded', 'false');
         } else {
             // Expand: transition from 0 to measured height
+            loadCovers();
             grid.offsetHeight; // force reflow
             grid.style.maxHeight = grid.scrollHeight + 'px';
             grid.style.opacity = '1';
