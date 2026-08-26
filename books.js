@@ -11,7 +11,8 @@ var booksByYear = {
         { title: "Streetwise", author: "Lloyd Blankfein", isbns: ["1398725485"], directCover: "https://books.google.com/books/content?id=4zpjEQAAQBAJ&printsec=frontcover&img=1&zoom=1", color: "#3d3929" },
         { title: "Central Banking 101", author: "Joseph Wang", isbns: ["0999136755"], color: "#6b5c4d" },
         { title: "Table for Two", author: "Amor Towles", isbns: ["0593296370", "1804943584"], color: "#4a3728" },
-        { title: "The Quants", author: "Scott Patterson", isbns: ["0307453375", "0307453383"], color: "#4a5240" }
+        { title: "The Quants", author: "Scott Patterson", isbns: ["0307453375", "0307453383"], color: "#4a5240" },
+        { title: "Who Says Elephants Can't Dance?", author: "Louis V. Gerstner Jr.", isbns: ["0060523794", "0060523808"], color: "#78593a" }
     ],
     2025: [
         { title: "1929", author: "Andrew Ross Sorkin", isbns: ["0593296966"], color: "#5c4033" },
