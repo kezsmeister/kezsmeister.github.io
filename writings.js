@@ -2,6 +2,12 @@ document.querySelectorAll('.essay-section').forEach(function(section) {
     var toggle = section.querySelector('.year-toggle');
     var body = section.querySelector('.essay-body');
 
+    // Sections marked expanded in the HTML start open
+    if (toggle.getAttribute('aria-expanded') === 'true') {
+        body.style.maxHeight = 'none';
+        body.style.opacity = '1';
+    }
+
     toggle.addEventListener('click', function() {
         var isExpanded = this.getAttribute('aria-expanded') === 'true';
 

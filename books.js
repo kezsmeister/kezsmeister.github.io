@@ -1,7 +1,7 @@
 var booksByYear = {
     2026: [
         { title: "The Dealmaker", author: "Guy Hands", isbns: ["1847940575"], directCover: "https://cdn.penguin.co.uk/dam-assets/books/9781847940575/9781847940575-jacket-large.jpg", color: "#5c4033" },
-        { title: "What I Learned About Investing from Darwin", author: "Pulak Prasad", isbns: ["0231203489"], directCover: "https://cup-us.imgix.net/covers/9780231203487.jpg?auto=format&w=350", color: "#8b4513" },
+        { title: "What I Learned About Investing from Darwin", author: "Pulak Prasad", isbns: ["0231203489"], directCover: "https://cup-us.imgix.net/covers/9780231203487.jpg?auto=format&w=350", color: "#8b4513", reread: true },
         { title: "Money Men", author: "Dan McCrum", isbns: ["0552178462", "178763504X"], directCover: "https://cdn.penguin.co.uk/dam-assets/books/9780552178464/9780552178464-jacket-large.jpg", color: "#556b2f" },
         { title: "Peak Human", author: "Johan Norberg", isbns: ["1838957294"], directCover: "https://atlantic-books.co.uk/wp-content/uploads/2026/02/9781838957315-scaled.jpeg", color: "#7c3a2e" },
         { title: "Boom", author: "Byrne Hobart & Tobias Huber", isbns: ["1953953476"], color: "#2f4f4f" },
@@ -41,7 +41,7 @@ var booksByYear = {
         { title: "Skunk Works", author: "Ben R. Rich & Leo Janos", isbns: ["0316743003", "0316743054"], color: "#78593a" },
         { title: "Space Barons", author: "Christian Davenport", isbns: ["1610398297", "1541774310"], color: "#2f4f4f" },
         { title: "The Best Short Stories 2024", author: "Ed. Amor Towles", directCover: "https://books.google.com/books/content?id=54ToEAAAQBAJ&printsec=frontcover&img=1&zoom=1", color: "#705038" },
-        { title: "The Whole-Brain Child", author: "Daniel J. Siegel & Tina Payne Bryson", isbns: ["0553386697", "0553807919"], color: "#8a7b5e" }
+        { title: "The Whole-Brain Child", author: "Daniel J. Siegel & Tina Payne Bryson", isbns: ["0553386697", "0553807919"], color: "#8a7b5e", reread: true }
     ],
     2024: [
         { title: "100 Baggers", author: "Christopher W. Mayer", isbns: ["1621291650"], color: "#5c4033" },
@@ -137,6 +137,13 @@ function createBookCard(book) {
     info.appendChild(titleEl);
     info.appendChild(authorEl);
 
+    if (book.reread) {
+        var rereadEl = document.createElement('div');
+        rereadEl.className = 'book-reread';
+        rereadEl.textContent = 're-read';
+        info.appendChild(rereadEl);
+    }
+
     div.appendChild(wrapper);
     div.appendChild(info);
 
@@ -223,6 +230,13 @@ document.querySelectorAll('.year-section').forEach(function(section) {
     books.forEach(function(book) {
         grid.appendChild(createBookCard(book));
     });
+
+    // Sections marked expanded in the HTML start open with covers loading
+    if (toggle.getAttribute('aria-expanded') === 'true') {
+        grid.style.maxHeight = 'none';
+        grid.style.opacity = '1';
+        loadCovers();
+    }
 
     function loadCovers() {
         if (coversLoaded) return;
