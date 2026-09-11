@@ -13,7 +13,8 @@ var booksByYear = {
         { title: "Table for Two", author: "Amor Towles", isbns: ["0593296370", "1804943584"], color: "#4a3728" },
         { title: "The Quants", author: "Scott Patterson", isbns: ["0307453375", "0307453383"], color: "#4a5240" },
         { title: "Who Says Elephants Can't Dance?", author: "Louis V. Gerstner Jr.", isbns: ["0060523794", "0060523808"], color: "#78593a" },
-        { title: "Grit, Rigour and Humour: The INEOS Story", author: "Jim Ratcliffe", isbns: ["085750522X", "9780857505224"], color: "#2f4f4f" }
+        { title: "Grit, Rigour and Humour: The INEOS Story", author: "Jim Ratcliffe", isbns: ["085750522X", "9780857505224"], color: "#2f4f4f" },
+        { title: "Crick", author: "Matthew Cobb", isbns: ["1541602889", "1800811055"], color: "#705038" }
     ],
     2025: [
         { title: "1929", author: "Andrew Ross Sorkin", isbns: ["0593296966"], color: "#5c4033" },
