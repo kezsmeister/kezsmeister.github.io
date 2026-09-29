@@ -1,0 +1,50 @@
+{
+  "name": "Zhalgas Serimbetov",
+  "updated": "2026-09-29",
+  "analyticsId": "G-74F6EP6V7N",
+  "navigation": [
+    "writings",
+    "health",
+    "books",
+    "links",
+    "about"
+  ],
+  "pages": [
+    {
+      "slug": "index",
+      "title": "Zhalgas Serimbetov",
+      "description": "Personal website of Zhalgas Serimbetov — reading markets in Almaty, writing about investing, books, parenting, and health.",
+      "bodyClass": ""
+    },
+    {
+      "slug": "writings",
+      "title": "Writings — Zhalgas Serimbetov",
+      "description": "Writings and essays by Zhalgas Serimbetov on learning, technology, and ideas.",
+      "bodyClass": ""
+    },
+    {
+      "slug": "health",
+      "title": "Health — Zhalgas Serimbetov",
+      "description": "Health insights and research notes by Zhalgas Serimbetov — evidence-based approaches to wellbeing.",
+      "bodyClass": ""
+    },
+    {
+      "slug": "books",
+      "title": "Books — Zhalgas Serimbetov",
+      "description": "Books read by Zhalgas Serimbetov — a collection organized by year with covers and authors.",
+      "bodyClass": "page-books"
+    },
+    {
+      "slug": "links",
+      "title": "Links — Zhalgas Serimbetov",
+      "description": "Curated links and resources recommended by Zhalgas Serimbetov.",
+      "bodyClass": "page-links"
+    },
+    {
+      "slug": "about",
+      "title": "About — Zhalgas Serimbetov",
+      "description": "About Zhalgas Serimbetov — reader of markets and business history in Almaty, writing about investing, parenting, and learning.",
+      "bodyClass": ""
+    }
+  ]
+}

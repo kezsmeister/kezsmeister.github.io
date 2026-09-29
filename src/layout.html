@@ -6,53 +6,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="color-scheme" content="light only">
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; form-action 'none'; script-src 'self' https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https://books.google.com https://covers.openlibrary.org https://cdn.penguin.co.uk https://cup-us.imgix.net https://atlantic-books.co.uk https://media.wiley.com https://static.wixstatic.com https://benbellabooks.com https://www.google-analytics.com https://*.google-analytics.com https://*.googletagmanager.com; connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://*.google-analytics.com https://*.googletagmanager.com;">
-    <meta name="description" content="Personal website of Zhalgas Serimbetov — reading markets in Almaty, writing about investing, books, parenting, and health.">
-    <title>Zhalgas Serimbetov</title>
+    <meta name="description" content="{{description}}">
+    <title>{{title}}</title>
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&amp;family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&amp;display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-74F6EP6V7N"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id={{analyticsId}}"></script>
     <script defer src="ga.js"></script>
 </head>
-<body class="">
+<body class="{{bodyClass}}">
     <a class="skip-link" href="#main">Skip to content</a>
     <div class="container">
         <aside class="sidebar">
-            <a href="index.html" class="site-title">Zhalgas Serimbetov</a>
+            <a href="index.html" class="site-title">{{name}}</a>
             <nav aria-label="Main navigation">
-                <a href="writings.html">writings</a>
-                <a href="health.html">health</a>
-                <a href="books.html">books</a>
-                <a href="links.html">links</a>
-                <a href="about.html">about</a>
+{{navigation}}
             </nav>
         </aside>
         <main class="main" id="main" tabindex="-1">
             <div class="content">
-<h1 class="visually-hidden">Zhalgas Serimbetov</h1>
-<div class="home-intro">
-    <p>
-        I'm Zhalgas. I live in Almaty, read markets for a living,
-        and spend most of the rest of my time being a dad.
-    </p>
-    <p>
-        This site keeps track of what I read and think about &mdash;
-        books on investing and the people who build businesses,
-        essays on how kids learn, and notes on sleep.
-    </p>
-    <div class="home-nav">
-        <a href="writings.html">Things I've written <span class="arrow">&rarr;</span></a>
-        <a href="books.html">Books I've read <span class="arrow">&rarr;</span></a>
-        <a href="health.html">Notes on health <span class="arrow">&rarr;</span></a>
-        <a href="about.html">More about me <span class="arrow">&rarr;</span></a>
-    </div>
-</div>
+{{content}}
             </div>
-            <footer>Site updated <time datetime="2026-09-29">September 2026</time>. Built with care.</footer>
+            <footer>Site updated <time datetime="{{updated}}">{{updatedLabel}}</time>. Built with care.</footer>
         </main>
     </div>
-
+{{scripts}}
 </body>
 </html>

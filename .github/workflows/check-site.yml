@@ -1,0 +1,25 @@
+name: Check site
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+      - run: npm ci --ignore-scripts
+      - name: Check generated pages, links, data, and regressions
+        run: npm run check
+      - run: npx playwright install --with-deps chromium
+      - name: Check keyboard controls, no-JavaScript content, and phone layout
+        run: npm run test:browser
