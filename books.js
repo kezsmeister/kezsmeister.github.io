@@ -14,7 +14,9 @@ var booksByYear = {
         { title: "The Quants", author: "Scott Patterson", isbns: ["0307453375", "0307453383"], color: "#4a5240" },
         { title: "Who Says Elephants Can't Dance?", author: "Louis V. Gerstner Jr.", isbns: ["0060523794", "0060523808"], color: "#78593a" },
         { title: "Grit, Rigour and Humour: The INEOS Story", author: "Jim Ratcliffe", isbns: ["085750522X", "9780857505224"], color: "#2f4f4f" },
-        { title: "Crick", author: "Matthew Cobb", isbns: ["1541602889", "1800811055"], color: "#705038" }
+        { title: "Crick", author: "Matthew Cobb", isbns: ["1541602889", "1800811055"], color: "#705038" },
+        { title: "1873", author: "Liaquat Ahamed", isbns: ["9781529155853", "9781594204173"], directCover: "https://cdn.penguin.co.uk/dam-assets/books/9781529155853/9781529155853-jacket-large.jpg", color: "#5c4033" },
+        { title: "SPQR", author: "Mary Beard", isbns: ["1846683815", "9781846683817"], directCover: "https://books.google.com/books/content?id=kYPtMAEACAAJ&printsec=frontcover&img=1&zoom=1", color: "#7c3a2e" }
     ],
     2025: [
         { title: "1929", author: "Andrew Ross Sorkin", isbns: ["0593296966"], color: "#5c4033" },
